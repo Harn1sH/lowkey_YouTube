@@ -36,7 +36,7 @@ function Head() {
         />
         <button
           className={
-            "border-gray-400 border-t border-b p-2 px-4 rounded-r-2xl text-center bg-neutral-200 hover:bg-neutral-300 transition-all duration-200"
+            "border-gray-400 border-t border-b p-2 px-4 rounded-r-2xl text-center bg-neutral-200 hover:bg-neutral-300 active:bg-neutral-400 transition-all duration-200"
           }
           type="submit"
         >

@@ -1,16 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function OpenBar({ ismenuOpen }) {
   return (
     <div
       className={
         ismenuOpen
-          ? "flex flex-col gap-y-4 px-3 w-[12rem]  ml-[-12px] shadow-lg transition-all duration-200 h-screen absolute z-30 bg-white"
-          : "px-3 w-[12rem] shadow-lg flex flex-col gap-y-2 ml-[-200px] transition-all duration-200 h-screen absolute bg-white"
+          ? "flex flex-col gap-y-4 px-3 w-[12rem]  ml-[-12px]  transition-all duration-200  absolute z-30 bg-white h-dvh"
+          : "px-3 w-[12rem] flex flex-col gap-y-2 ml-[-200px] transition-all duration-200  absolute bg-white h-dvh"
       }
     >
       <ul className="flex font-semibold flex-col gap-y-1">
-        <li className={"font-bold"}>Home</li>
+        <Link to={"/"}>
+          {" "}
+          <li className={"font-bold"}>Home</li>
+        </Link>
         <li>Shorts</li>
         <li>Videos</li>
         <li>Live</li>

@@ -5,17 +5,18 @@ import CloseBar from "./closeBar";
 
 function Sidebar() {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const isMenuCollapsed = useSelector((store) => store.app.isCollapsed);
   //px-3 w-[12rem] shadow-lg flex flex-col gap-y-2
   //flex justify-end
   return (
     <div className="transition-all duration-200 h-screen">
       <div
         className={
-          "px-3 w-[9rem] shadow-lg flex flex-col gap-y-2 transition-all duration-200 h-screen"
+          "px-3 w-[9rem] flex flex-col gap-y-2 transition-all duration-200 h-screen"
         }
       >
         <OpenBar ismenuOpen={isMenuOpen} />
-        <CloseBar />
+        <CloseBar isMenuCollapsed={isMenuCollapsed} />
       </div>
     </div>
   );
