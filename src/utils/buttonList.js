@@ -1,0 +1,16 @@
+export const buttonList = [
+  "All",
+  "Live",
+  "Gaming",
+  "Music",
+  "Trending",
+  "songs",
+  "soccer",
+  "Cricket",
+  "Cooking",
+  "T-series",
+  "Comedy",
+  "Satire",
+  "Podcast",
+  "New ",
+];
