@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import search from "../../assets/magnifying.svg";
 import Suggestion from "./Suggestion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cacheResults } from "../../utils/Store/slice/searchSlice";
+import { closeSearch, openSearch } from "../../utils/Store/slice/appSlice";
 
 function SearchBar() {
   const [searchVal, setSearchVal] = useState("");
   const [searchSuggestion, setSearchSuggestion] = useState();
-  const [showSuggestions, setShowSuggestions] = useState(false);
   const cache = useSelector((store) => store.search);
+  const showSuggestions = useSelector((store) => store.app.isSearchOpen);
+  const dispatch = useDispatch();
 
   const searchResult = async () => {
     try {
@@ -17,13 +20,21 @@ function SearchBar() {
       );
       const jsonData = await data.json();
       setSearchSuggestion(jsonData[1]);
+      dispatch(cacheResults({ [searchVal]: jsonData[1] }));
     } catch (e) {
       console.log(e);
     }
   };
 
   useEffect(() => {
-    const timeOut = setTimeout(() => searchResult(), 200);
+    dispatch(openSearch());
+    const timeOut = setTimeout(() => {
+      if (cache[searchVal]) {
+        setSearchSuggestion(cache[searchVal]);
+      } else {
+        searchResult();
+      }
+    }, 200);
     return () => clearTimeout(timeOut);
   }, [searchVal]);
 
@@ -36,8 +47,8 @@ function SearchBar() {
           placeholder={"Search"}
           value={searchVal}
           onChange={(e) => setSearchVal(e.target.value)}
-          onFocus={() => setShowSuggestions(true)}
-          onBlur={() => setShowSuggestions(false)}
+          onFocus={() => dispatch(openSearch())}
+          //onBlur={() => setShowSuggestions(false)}
         />
         <button
           className={
@@ -63,9 +74,9 @@ function SearchBar() {
                 className={
                   "flex flex-col  bg-white py-3  shadow-black rounded-lg shadow-lg"
                 }
+                onBlur={() => dispatch(closeSearch())}
               >
                 {searchSuggestion?.map((suggest) => {
-                  console.log(suggest);
                   return <Suggestion key={suggest} suggest={suggest} />;
                 })}
               </ul>

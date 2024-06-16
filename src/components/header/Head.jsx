@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import menu from "../../assets/hamburgerMenu.svg";
 import search from "../../assets/magnifying.svg";
 import { useDispatch } from "react-redux";
@@ -9,7 +9,10 @@ function Head() {
   const dispatch = useDispatch();
   //grid  p-4 grid-flow-col shadow-xl
   return (
-    <div className="grid  p-4 grid-flow-col shadow-xl">
+    <div
+      className="grid  p-4 grid-flow-col shadow-xl"
+      //onBlur={() => setShowSuggestions(false)}
+    >
       <div className="flex col-span-1 gap-x-3  items-center">
         <div
           className={

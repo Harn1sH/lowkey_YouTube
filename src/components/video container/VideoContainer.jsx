@@ -12,6 +12,7 @@ function VideoContainer() {
     const data = await fetch(YOUTUBE_API);
     const videos = await data.json();
     setVideos(videos.items);
+    console.log(videos);
   };
   return (
     <div className={"m-5 grid grid-cols-3 gap-y-6"}>

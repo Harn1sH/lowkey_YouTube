@@ -5,6 +5,7 @@ const appSlice = createSlice({
   initialState: {
     isMenuOpen: false,
     isCollapsed: false,
+    isSearchOpen: false,
   },
   reducers: {
     toggleMenu: (state) => {
@@ -16,8 +17,15 @@ const appSlice = createSlice({
     openMenu: (state) => {
       state.isCollapsed = false;
     },
+    closeSearch: (state) => {
+      state.isSearchOpen = false;
+    },
+    openSearch: (state) => {
+      state.isSearchOpen = true;
+    },
   },
 });
 
 export default appSlice.reducer;
-export const { toggleMenu, closeMenu, openMenu } = appSlice.actions;
+export const { toggleMenu, closeMenu, openMenu, openSearch, closeSearch } =
+  appSlice.actions;

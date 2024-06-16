@@ -4,6 +4,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BodyContainer from "./components/body/body container/BodyContainer";
 import WatchPage from "./components/watch page/WatchPage";
+import SearchList from "./components/search list/SearchList";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -19,12 +20,15 @@ function App() {
           path: "/watch",
           element: <WatchPage />,
         },
+        {
+          path: "/results",
+          element: <SearchList />,
+        },
       ],
     },
   ]);
   return (
     <div className="">
-      <Head />
       <RouterProvider router={appRouter} />
     </div>
   );
