@@ -6,7 +6,6 @@ import { useSearchParams } from "react-router-dom";
 function WatchPage() {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
-  console.log(searchParams.get("v"));
   useEffect(() => {
     dispatch(closeMenu());
     return () => {
@@ -26,7 +25,6 @@ function WatchPage() {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen={true}
       ></iframe>
-      <iframe></iframe>
     </div>
   );
 }

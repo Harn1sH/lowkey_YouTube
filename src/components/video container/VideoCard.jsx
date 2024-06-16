@@ -2,7 +2,6 @@ import React from "react";
 
 function VideoCard({ video }) {
   //const { channelTitle, title, thumbNails } = video.snippet;
-  console.log(video);
   return (
     <div
       className={
