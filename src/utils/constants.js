@@ -12,3 +12,41 @@ export const SEARCH_API =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=" +
   API_KEY +
   "&q=";
+
+export const Comments = [
+  {
+    name: "Big Small",
+    comment: "YEAAAAAAAAHHH LESSSGOOOOOOOOO",
+    replies: [
+      { name: "Small Akshai", comment: "LESSSGOOOOOOOOO", replies: [] },
+    ],
+  },
+  {
+    name: "Big Small",
+    comment: "YEAAAAAAAAHHH LESSSGOOOOOOOOO",
+    replies: [
+      { name: "Small Akshai", comment: "LESSSGOOOOOOOOO", replies: [] },
+      {
+        name: "Big Small",
+        comment: "YEAAAAAAAAHHH LESSSGOOOOOOOOO",
+        replies: [
+          { name: "Small Akshai", comment: "LESSSGOOOOOOOOO", replies: [] },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Big Small",
+    comment: "YEAAAAAAAAHHH LESSSGOOOOOOOOO",
+    replies: [
+      { name: "Small Akshai", comment: "LESSSGOOOOOOOOO", replies: [] },
+    ],
+  },
+  {
+    name: "Big Small",
+    comment: "YEAAAAAAAAHHH LESSSGOOOOOOOOO",
+    replies: [
+      { name: "Small Akshai", comment: "LESSSGOOOOOOOOO", replies: [] },
+    ],
+  },
+];

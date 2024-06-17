@@ -1,14 +1,21 @@
 import React from "react";
 import CommentTile from "./CommentTile";
 
-function CommentsContainer(props) {
+function CommentsContainer({ comments }) {
   return (
-    <div className={"ml-[-130px]"}>
-      <span className={" font-bold text-xl"}>Comments</span>
-      <CommentTile
-        name={"Akshay Saini"}
-        comment={"YEAAAAAAAAHHH LESSSGOOOOOOOOO"}
-      />
+    <div className={""}>
+      <span className={""}>
+        {comments.map((comment) => {
+          return (
+            <div className={""}>
+              <CommentTile name={comment.name} comment={comment.comment} />
+              <div className={"pl-3 ml-5 border-l-2 border-black"}>
+                <CommentsContainer comments={comment.replies} />
+              </div>
+            </div>
+          );
+        })}
+      </span>
     </div>
   );
 }

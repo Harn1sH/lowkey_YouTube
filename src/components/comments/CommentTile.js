@@ -4,7 +4,7 @@ function CommentTile({ name, comment }) {
   return (
     <div
       className={
-        "flex items-center gap-x-5 bg-neutral-100 p-3 rounded-2xl w-8/12"
+        "flex items-center gap-x-5 bg-neutral-100 p-3 rounded-2xl w-8/12 my-5"
       }
     >
       <img
