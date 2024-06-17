@@ -4,6 +4,7 @@ import search from "../../assets/magnifying.svg";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../../utils/Store/slice/appSlice";
 import SearchBar from "../search bar/SearchBar";
+import { Link } from "react-router-dom";
 
 function Head() {
   const dispatch = useDispatch();
@@ -24,11 +25,13 @@ function Head() {
         >
           <img src={menu} className="h-8 " alt="menu" />
         </div>
-        <img
-          className="h-8"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png"
-          alt="yt"
-        />
+        <Link to={"/"}>
+          <img
+            className="h-8"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png"
+            alt="yt"
+          />
+        </Link>
       </div>
       <SearchBar />
       <div className="col-span-2 flex justify-center items-center">
