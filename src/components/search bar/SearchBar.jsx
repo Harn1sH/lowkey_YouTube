@@ -4,6 +4,7 @@ import Suggestion from "./Suggestion";
 import { useDispatch, useSelector } from "react-redux";
 import { cacheResults } from "../../utils/Store/slice/searchSlice";
 import { closeSearch, openSearch } from "../../utils/Store/slice/appSlice";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   const [searchVal, setSearchVal] = useState("");
@@ -50,14 +51,21 @@ function SearchBar() {
           onFocus={() => dispatch(openSearch())}
           //onBlur={() => setShowSuggestions(false)}
         />
-        <button
-          className={
-            "border-gray-400 border-t border-b p-2 px-4 rounded-r-2xl text-center bg-neutral-200 hover:bg-neutral-300 active:bg-neutral-400 transition-all duration-200"
-          }
-          type="submit"
-        >
-          <img src={search} alt="search" className="h-6" />
-        </button>
+        <Link to={`/results/?s=${searchVal}`}>
+          <button
+            className={
+              "border-gray-400 border-t border-b p-2 px-4 rounded-r-2xl text-center bg-neutral-200 hover:bg-neutral-300 active:bg-neutral-400 transition-all duration-200"
+            }
+            type="submit"
+          >
+            <img
+              onFocus={dispatch(closeSearch())}
+              src={search}
+              alt="search"
+              className="h-6"
+            />
+          </button>
+        </Link>
       </div>
       <div
         className={
